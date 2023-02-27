@@ -151,9 +151,9 @@ If (script == "GlassBlowing") {
 	loop 27{
 		sleep sleeptimer2
 		itensfeitos++
-        GuiControl, , itensfeitos , %itensfeitos%.
+       		GuiControl, , itensfeitos , %itensfeitos%.
 		xpmade:=(xpmade+52.5)
-        GuiControl, , xpmade , %xpmade% xp.
+        	GuiControl, , xpmade , %xpmade% xp.
 	}
 
 	}
@@ -174,19 +174,19 @@ Gui, submit, NoHide
 return
 f5::
 mousegetpos,fcincox, fcincoy
-;guicontrol, , foito, Done!
+;guicontrol, , fcinco, Done!
 gui,font,cgreen
 guicontrol,font,fcinco
 return
 f6::
 mousegetpos,fseisx, fseisy
-;guicontrol, , foito, Done!
+;guicontrol, , fseis, Done!
 gui,font,cgreen
 guicontrol,font,fseis
 return
 f7::
 mousegetpos,fsetex, fsetey
-;guicontrol, , foito, Done!
+;guicontrol, , fsete, Done!
 gui,font,cgreen
 guicontrol,font,fsete
 return
