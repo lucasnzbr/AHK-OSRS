@@ -151,9 +151,9 @@ If (script == "GlassBlowing") {
 	loop 27{
 		sleep sleeptimer2
 		itensfeitos++
-        GuiControl, , itensfeitos , %itensfeitos%.
+        	GuiControl, , itensfeitos , %itensfeitos%.
 		xpmade:=(xpmade+52.5)
-        GuiControl, , xpmade , %xpmade% xp.
+        	GuiControl, , xpmade , %xpmade% xp.
 	}
 
 	}
