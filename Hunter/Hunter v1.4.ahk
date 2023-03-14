@@ -214,7 +214,7 @@ Loop{
 
 
 finalizar:
-msgbox, Script Finalizado. Feitos %itensfeitos% no glassblowing pipe. Garantindo %xpmade% xp.
+msgbox, Script Finalizado. Capturadas %itensfeitos%. Garantindo %xpmade% xp.
 F2::
 Reload
 GuiClose:
