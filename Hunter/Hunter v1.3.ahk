@@ -1,4 +1,4 @@
-﻿#SingleInstance, force
+#SingleInstance, force
 coordmode, mouse, screen
 coordmode, pixel, screen
 ;Functions
@@ -115,77 +115,22 @@ If (script == "Swamp Lizard") {
 	 - Armadilhas Prontas (verde)
 	 - Armadilhas para serem postas (vermelho)
 	*/
+	comeco:
 Loop{
-				status("Aguardando Trigger")
-	Loop{ ;dropar inventario
-		Pixelsearch,swampx,swampy,1189,450,1570,952,0x095409,3,fast
-
-			If (errorlevel == 0){
-							status("Dropando Inv")
-			mousegetpos,mousex,mousey
-			RandomBezier(mousex, mousey, swampx,swampy, "T300 OT15 OB15 OL15 OR15")
-			sleeptime(130,180)
-			Click
-			sleeptime(130,180)
-			continue
-			}
-
-			If (errorlevel == 1){
-			break
-			}
+	status("Aguardando Trigger")
+	Pixelsearch,swampx,swampy,1189,450,1570,952,0x095409,3,fast ;se há itens no inv
+	If (errorlevel == 0){
+		status("Dropando Inv")
+		mousegetpos,mousex,mousey
+		RandomBezier(mousex, mousey, swampx,swampy, "T300 OT15 OB15 OL15 OR15")
+		sleeptime(130,180)
+		Click
+		sleeptime(130,180)
 		}
-	Loop{ ;se tiver itens no chao
-		Pixelsearch,itemchaox,itemchaoy,50,41,1088,684,0xcd0089,5,fast
+		If (errorlevel == 1){
+		Pixelsearch,itemchaox,itemchaoy,50,41,1088,684,0xcd0089,5,fast ;se ha itens no chao
 			If (errorlevel == 0){
-							status("Catando Item do Chao")
-			mousegetpos,mousex,mousey
-			random,var1,15,20
-			random,var2,15,20
-			itemchaox+=var1
-			itemchaoy+=var2
-			RandomBezier(mousex, mousey,itemchaox,itemchaoy, "T300 OT15 OB15 OL15 OR15")
-			sleeptime(130,180)
-			Click
-			sleeptime(4000,5000)
-			continue
-			}
-			If (errorlevel == 1){
-			break
-			}
-		}
-	Loop{ ;armadilhas prontas
-		Pixelsearch,armadilhasprontasx,armadilhasprontasy,50,41,1088,684,0x00FFFF,15,fast
-			If (errorlevel == 0){
-							status("Checando Armadilha Amarela")
-			mousegetpos,mousex,mousey
-			random,var1,15,20
-			random,var2,15,20
-			armadilhasprontasx+=var1
-			armadilhasprontasy+=var2
-			RandomBezier(mousex, mousey, armadilhasprontasx,armadilhasprontasy, "T300 OT15 OB15 OL15 OR15")
-			sleeptime(130,180)
-			Click
-			sleeptime(3500,4800)
-			itensfeitos++
-			xpmade+=152
-			GuiControl, , itensfeitos ,  %itensfeitos% catches.
-			GuiControl, , xpmade ,  %xpmade% Xp.
-			continue
-			}
-
-			If (errorlevel == 1){
-			break
-			}
-		}
-
-	Loop{ ;armadilhas em vermelho
-		Pixelsearch,armadilhasemvermelhox,armadilhasemvermelhoy,50,41,1088,684,0x0000ff,3,fast
-			If (errorlevel == 0){
-							status("Armadilha Vermelha")
-				loop 8{
-				Pixelsearch,itemchaox,itemchaoy,50,41,1088,684,0xcd0089,5,fast
-				If (errorlevel == 0){
-							status("Item Do Chao, Armadilha Vermelha")
+				status("Catando Item do Chao")
 				mousegetpos,mousex,mousey
 				random,var1,15,20
 				random,var2,15,20
@@ -196,36 +141,75 @@ Loop{
 				Click
 				sleeptime(4000,5000)
 				}
-				If (errorlevel == 1){
-				break
-				}
-				}
-		Pixelsearch,armadilhasemvermelhox,armadilhasemvermelhoy,50,41,1088,684,0x0000ff,3,fast
-		If (errorlevel == 0){
-						status("Armadilha Vermelha dps de dropar")
-			mousegetpos,mousex,mousey
-			random,var1,5,15
-			random,var2,5,15
-			armadilhasemvermelhox+=var1
-			armadilhasemvermelhoy+=var2
-			RandomBezier(mousex, mousey, armadilhasemvermelhox,armadilhasemvermelhoy, "T300 OT15 OB15 OL15 OR15")
-			sleeptime(130,180)
-			Click
-			sleeptime(5000,7000)
-			break
-			}
-
 			If (errorlevel == 1){
-			break
+				Pixelsearch,armadilhasprontasx,armadilhasprontasy,50,41,1088,684,0x00FFFF,15,fast ;achando armadilhas catched
+					If (errorlevel == 0){
+					status("Checando Armadilha Amarela")
+					mousegetpos,mousex,mousey
+					random,var1,15,20
+					random,var2,15,20
+					armadilhasprontasx+=var1
+					armadilhasprontasy+=var2
+					RandomBezier(mousex, mousey, armadilhasprontasx,armadilhasprontasy, "T300 OT15 OB15 OL15 OR15")
+					sleeptime(130,180)
+					Click
+					sleeptime(3500,4800)
+					itensfeitos++
+					xpmade+=152
+					GuiControl, , itensfeitos ,  %itensfeitos% catches.
+					GuiControl, , xpmade ,  %xpmade% Xp.
+					}
+					If (errorlevel == 1){
+						Pixelsearch,armadilhasemvermelhox,armadilhasemvermelhoy,50,41,1088,684,0x0000ff,3,fast ;achando armadilhas em vermelho
+							If (errorlevel == 0){
+							status("Armadilha Vermelha")
+							loop 8{
+							Pixelsearch,itemchaox,itemchaoy,50,41,1088,684,0xcd0089,5,fast ;acha itens em roxo ate acabarem
+								If (errorlevel == 0){
+								status("Item Do Chao, Armadilha Vermelha")
+								mousegetpos,mousex,mousey
+								random,var1,15,20
+								random,var2,15,20
+								itemchaox+=var1
+								itemchaoy+=var2
+								RandomBezier(mousex, mousey,itemchaox,itemchaoy, "T300 OT15 OB15 OL15 OR15")
+								sleeptime(130,180)
+								Click
+								sleeptime(4000,5000)
+								}
+								If (errorlevel == 1){
+									Pixelsearch,armadilhasemvermelhox,armadilhasemvermelhoy,50,41,1088,684,0x0000ff,3,fast ;achando armadilhas em vermelho
+										If (errorlevel == 0){
+											status("Armadilha Vermelha dps de dropar")
+											mousegetpos,mousex,mousey
+											random,var1,5,15
+											random,var2,5,15
+											armadilhasemvermelhox+=var1
+											armadilhasemvermelhoy+=var2
+											RandomBezier(mousex, mousey, armadilhasemvermelhox,armadilhasemvermelhoy, "T300 OT15 OB15 OL15 OR15")
+											sleeptime(130,180)
+											Click
+											sleeptime(5000,7000)
+											}
+											If (errorlevel == 1){
+											goto,comeco
+											}
+								}
+							}
+					}
+				}
 			}
-	}
+		}
+		If (segundosdesdeocomeco >= maxtimer){
+		gosub, finalizar
+}
 
-If (segundosdesdeocomeco >= maxtimer){
-gosub, finalizar
+
+
+
 									}
 
 	}
-								}}
 
 
 
