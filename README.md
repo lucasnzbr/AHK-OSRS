@@ -1,12 +1,6 @@
 # AHK-OSRS
+2
 AutoHotKey Scripts for OSRS
-# test
-* test1*
-* test2*
-* test3*
-## test##
-### Test###
-#### test####
-##### test#####
-###### test######
-
+3
+# How To
+## download the MainScriptUpdate.ahk and it will download everything else in %A_WokingDir% (same directory as it's being executed).
