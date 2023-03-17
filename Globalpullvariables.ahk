@@ -4,5 +4,5 @@ CHANGELOG
 
 v1.0.0.0 - 03/17/2023 - Script Created
 */
-version:="1.0.0.0"
+currentversion:="1.0.0.0"
 
