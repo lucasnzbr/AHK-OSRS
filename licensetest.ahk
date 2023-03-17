@@ -1,2 +1,2 @@
-var1:="teste2"
-var2:= 2
+var1:="testando"
+var2:=111
