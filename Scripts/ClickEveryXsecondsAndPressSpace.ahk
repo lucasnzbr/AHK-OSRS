@@ -77,7 +77,7 @@ RandomBezier( X0, Y0, Xf, Yf, O="" ) {
      apply to the [X0,Y0,Xf,Yf] rectangle, making it wider or narrower
    > It is possible to use multiple offsets at the same time
    > When not specified, an offset defaults to 100
-     - This means that, if none are specified, the random Bézier control
+     - This means that, if none are specified, the random BÃ©zier control
        points will be generated within a box that is wider by 100 pixels
        in all directions, and the trajectory will never go beyond that
 
