@@ -1,4 +1,4 @@
-﻿RandomBezier( X0, Y0, Xf, Yf, O="" ) {
+RandomBezier( X0, Y0, Xf, Yf, O="" ) {
 
     Time := RegExMatch(O,"i)T(\d+)",M)&&(M1>0)? M1: 200
     RO := InStr(O,"RO",0) , RD := InStr(O,"RD",0)
@@ -47,5 +47,5 @@ Sleeptime(mintimer,maxtimer){ ;ok
 }
 
 Bezier(x1,y1,x2,y2,time){
-RandomBezier(x1, y1, x2, y2, %time% OT15 OB15 OL15 OR15)
+RandomBezier(x1, y1, x2, y2, "T" %time%)
 }
