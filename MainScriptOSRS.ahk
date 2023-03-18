@@ -8,7 +8,7 @@ This Script will be the one with all the features to execute the code
 
 SetWorkingDir, DirName
 huntersalamanders:
-run, scripts\Hunter v1.4 Working and Tested.ahk
+run, scripts\HunterV1.4WorkingAndTested.ahk
 exitapp
 return
 infohuntersalamanders:
